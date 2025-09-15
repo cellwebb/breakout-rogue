@@ -2,6 +2,8 @@
 
 A roguelike/roguelite twist on the classic Breakout arcade game, featuring procedural generation, power-ups, and persistent upgrades.
 
+🎮 **[Play Now on GitHub Pages](https://cellwebb.github.io/breakout-rogue/)**
+
 ## Features
 
 ### Core Gameplay
@@ -44,15 +46,25 @@ A roguelike/roguelite twist on the classic Breakout arcade game, featuring proce
 - Combo Master - Enhanced combo multipliers
 - Power Extender - Longer power-up durations
 
+## Play Online
+
+🌐 **Play directly in your browser:** https://cellwebb.github.io/breakout-rogue/
+
+Or clone and run locally:
+```bash
+git clone https://github.com/cellwebb/breakout-rogue.git
+cd breakout-rogue
+# Open index.html in your browser
+```
+
 ## How to Play
 
-1. Open `index.html` in a web browser
-2. Click "START GAME" to begin
-3. Use Arrow keys or A/D to move the paddle
-4. Press SPACE to release the ball
-5. Destroy all bricks to advance levels
-6. Collect power-ups and coins
-7. Purchase upgrades between games
+1. Click "START GAME" to begin
+2. Use Arrow keys or A/D to move the paddle
+3. Press SPACE to release the ball
+4. Destroy all bricks to advance levels
+5. Collect power-ups and coins
+6. Purchase upgrades between games
 
 ## Controls
 
@@ -72,6 +84,16 @@ Built with vanilla JavaScript and HTML5 Canvas, featuring:
 - Dynamic lighting and glow effects
 - Responsive collision detection
 - Procedural level generation
+- Single-file architecture (no build tools required)
+- Mobile-responsive design
+
+## Deployment
+
+This game is deployed via GitHub Pages and automatically updates when changes are pushed to the main branch.
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests with improvements or new features!
 
 ## License
 
