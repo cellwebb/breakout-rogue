@@ -211,43 +211,56 @@
         background: rgba(0, 0, 0, 0.95);
         border: 2px solid #0ff;
         border-radius: 10px;
-        padding: 40px;
+        padding: 50px 60px;
         text-align: center;
         display: none;
         z-index: 1000;
+        min-width: 500px;
       }
 
       .pause-screen h2 {
         color: #0ff;
         margin-bottom: 20px;
-        font-size: 36px;
+        font-size: 42px;
         text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        letter-spacing: 3px;
       }
 
       .pause-screen p {
         color: #aaa;
-        margin: 10px 0;
+        margin: 15px 0;
         font-size: 16px;
       }
 
       .pause-screen .controls {
-        margin-top: 30px;
-        padding-top: 20px;
+        margin-top: 40px;
+        padding-top: 30px;
         border-top: 1px solid #0ff;
       }
 
       .pause-screen .control-item {
-        display: flex;
-        justify-content: space-between;
-        margin: 10px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 18px 0;
         color: #ccc;
+        font-size: 15px;
+        align-items: center;
       }
 
       .pause-screen .control-key {
         color: #0ff;
         font-weight: bold;
-        min-width: 120px;
+        text-align: right;
+        font-family: 'Courier New', monospace;
+        padding-right: 10px;
+        white-space: nowrap;
+      }
+      
+      .pause-screen .control-desc {
         text-align: left;
+        color: #ddd;
+        padding-left: 15px;
       }
 
       @keyframes slideDown {
@@ -320,18 +333,18 @@
         <p>Press P or ESC to resume</p>
         
         <div class="controls">
-          <h3 style="color: #0ff; margin-bottom: 15px;">CONTROLS</h3>
+          <h3 style="color: #0ff; margin-bottom: 20px; font-size: 18px;">CONTROLS</h3>
           <div class="control-item">
             <span class="control-key">← / → or A / D</span>
-            <span>Move paddle</span>
+            <span class="control-desc">Move paddle</span>
           </div>
           <div class="control-item">
             <span class="control-key">SPACE</span>
-            <span>Release ball</span>
+            <span class="control-desc">Release ball</span>
           </div>
           <div class="control-item">
             <span class="control-key">P or ESC</span>
-            <span>Pause/Resume</span>
+            <span class="control-desc">Pause/Resume</span>
           </div>
         </div>
       </div>
