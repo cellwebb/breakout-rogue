@@ -203,6 +203,53 @@
         animation: slideDown 0.5s ease;
       }
 
+      .pause-screen {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.95);
+        border: 2px solid #0ff;
+        border-radius: 10px;
+        padding: 40px;
+        text-align: center;
+        display: none;
+        z-index: 1000;
+      }
+
+      .pause-screen h2 {
+        color: #0ff;
+        margin-bottom: 20px;
+        font-size: 36px;
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+      }
+
+      .pause-screen p {
+        color: #aaa;
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      .pause-screen .controls {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #0ff;
+      }
+
+      .pause-screen .control-item {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        color: #ccc;
+      }
+
+      .pause-screen .control-key {
+        color: #0ff;
+        font-weight: bold;
+        min-width: 120px;
+        text-align: left;
+      }
+
       @keyframes slideDown {
         from {
           top: -50px;
@@ -252,7 +299,7 @@
         <h1>BREAKOUT ROGUE</h1>
         <p>A roguelike twist on the classic Breakout</p>
         <p>Destroy bricks, collect power-ups, and upgrade your paddle!</p>
-        <p>Use ARROW KEYS or A/D to move</p>
+        <p>Use ARROW KEYS or A/D to move • SPACE to launch • P or ESC to pause</p>
         <button onclick="startGame()">START GAME</button>
       </div>
 
@@ -267,6 +314,27 @@
       </div>
 
       <div class="power-up-notification" id="powerUpNotification"></div>
+      
+      <div class="pause-screen" id="pauseScreen">
+        <h2>PAUSED</h2>
+        <p>Press P or ESC to resume</p>
+        
+        <div class="controls">
+          <h3 style="color: #0ff; margin-bottom: 15px;">CONTROLS</h3>
+          <div class="control-item">
+            <span class="control-key">← / → or A / D</span>
+            <span>Move paddle</span>
+          </div>
+          <div class="control-item">
+            <span class="control-key">SPACE</span>
+            <span>Release ball</span>
+          </div>
+          <div class="control-item">
+            <span class="control-key">P or ESC</span>
+            <span>Pause/Resume</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -437,14 +505,34 @@
       // Controls
       const keys = {};
       document.addEventListener("keydown", (e) => {
+        // Handle pause
+        if ((e.key === "p" || e.key === "P" || e.key === "Escape") && gameRunning) {
+          e.preventDefault();
+          togglePause();
+          return;
+        }
+        
         keys[e.key] = true;
-        if (e.key === " " && ball.attached && gameRunning) {
+        if (e.key === " " && ball.attached && gameRunning && !gamePaused) {
           releaseBall();
         }
       });
       document.addEventListener("keyup", (e) => {
         keys[e.key] = false;
       });
+
+      // Toggle pause
+      function togglePause() {
+        gamePaused = !gamePaused;
+        const pauseScreen = document.getElementById("pauseScreen");
+        
+        if (gamePaused) {
+          pauseScreen.style.display = "block";
+        } else {
+          pauseScreen.style.display = "none";
+          gameLoop(); // Resume game loop
+        }
+      }
 
       // Initialize bricks with roguelike generation
       function initBricks() {
@@ -497,6 +585,8 @@
 
       // Update paddle
       function updatePaddle() {
+        if (gamePaused) return; // Don't update when paused
+        
         if (keys["ArrowLeft"] || keys["a"] || keys["A"]) {
           paddle.x = Math.max(0, paddle.x - paddle.speed);
         }

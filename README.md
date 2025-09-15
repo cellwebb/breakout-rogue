@@ -76,6 +76,7 @@ cd breakout-rogue
 
 - **Left/Right Arrow** or **A/D** - Move paddle
 - **Space** - Release ball from paddle
+- **P** or **ESC** - Pause/Resume game
 
 ## Game Modes
 
