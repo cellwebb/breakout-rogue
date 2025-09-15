@@ -7,6 +7,7 @@ A roguelike/roguelite twist on the classic Breakout arcade game, featuring proce
 ## Features
 
 ### Core Gameplay
+
 - Classic breakout mechanics with smooth paddle and ball physics
 - Destructible bricks with satisfying particle effects
 - Responsive controls (Arrow keys or A/D)
@@ -14,6 +15,7 @@ A roguelike/roguelite twist on the classic Breakout arcade game, featuring proce
 ### Roguelike Elements
 
 #### Power-ups
+
 - **Multiball** - Split balls into multiple projectiles
 - **Wide Paddle** - Temporarily expand paddle width
 - **Slow Motion** - Reduce ball speed
@@ -25,6 +27,7 @@ A roguelike/roguelite twist on the classic Breakout arcade game, featuring proce
 - **Sticky Paddle** - Ball sticks to paddle on contact
 
 #### Brick Types
+
 - **Normal** (Red) - 1 hit to destroy
 - **Tough** (Cyan) - 2 hits to destroy
 - **Armored** (Green) - 3 hits to destroy
@@ -33,12 +36,14 @@ A roguelike/roguelite twist on the classic Breakout arcade game, featuring proce
 - **Mystery** - Random rewards and surprises
 
 #### Progression System
+
 - **Persistent Upgrades** - Purchase permanent improvements with coins
 - **Level Scaling** - Difficulty increases with each level
 - **Combo System** - Chain brick destructions for score multipliers
 - **Roguelite Mode** - Continue with upgrades after game over
 
 ### Upgrades Shop
+
 - Swift Paddle - Increase movement speed
 - Speed Control - Better ball speed management
 - Extra Life - Start with additional lives
@@ -51,6 +56,7 @@ A roguelike/roguelite twist on the classic Breakout arcade game, featuring proce
 🌐 **Play directly in your browser:** https://cellwebb.github.io/breakout-rogue/
 
 Or clone and run locally:
+
 ```bash
 git clone https://github.com/cellwebb/breakout-rogue.git
 cd breakout-rogue
@@ -79,6 +85,7 @@ cd breakout-rogue
 ## Technical Details
 
 Built with vanilla JavaScript and HTML5 Canvas, featuring:
+
 - Smooth 60 FPS gameplay
 - Particle effects system
 - Dynamic lighting and glow effects
